@@ -12,8 +12,9 @@
 			else{
 				require 'php/conexionbd.php'; //Conexión a la base de datos
 
-				$user = $_POST['username1'];
-				$psw = $_POST['password1'];
+				//Sanitizar los datos ingresados
+				$user = mysqli_real_escape_string($conn, $_POST['username1']);
+            	$psw = mysqli_real_escape_string($conn, $_POST['password1']);
 
 				$query = mysqli_query($conn,"SELECT * FROM usuarios WHERE username = '$user' AND password = '$psw'");
 				$result = mysqli_num_rows($query);

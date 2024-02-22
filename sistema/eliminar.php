@@ -1,25 +1,28 @@
 <?php
-	require '../php/conexionbd.php';
-	$alert = '';
-	session_start();
-	if (empty($_SESSION['active'])) {
-		header('location: ../');
-	}
+require '../php/conexionbd.php';
+$alert = '';
+session_start();
+if (empty($_SESSION['active'])) {
+    header('location: ../');
+}
 
+if (isset($_POST['idreg']) && !empty($_POST['idreg'])) {
+    $idr = $_POST['idreg'];
 
-	require '../php/conexionbd.php';
+    // Uso de consultas preparadas para prevenir inyecciones SQL
+    $stmt = $conn->prepare("DELETE FROM ventas WHERE id = ?");
+    $stmt->bind_param("i", $idr); // "i" indica que el id es de tipo entero
 
-	if (isset($_POST['idreg']) && !empty($_POST['idreg'])) {
-		$idr= $_POST['idreg'];
-		$sql = "DELETE FROM ventas WHERE id = '$idr'";
-	
-		if (mysqli_query($conn, $sql)) {
-	    	header('location: eliminar.php');
-
-		}
-		mysqli_close($conn);
-	}
+    if ($stmt->execute()) {
+        header('location: eliminar.php');
+    } else {
+        echo "Error al eliminar el registro.";
+    }
+    $stmt->close();
+    $conn->close();
+}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,7 +60,7 @@
 					<i class="fas fa-hashtag"></i>
 					<input type="text" placeholder="Número de registro" name="idreg" autocomplete="off">
 				</div>
-				<input class="btn" type="submit" value="Eliminar">
+				<input class="btn" type="submit" value="Eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?');">
 			</div>
 		</form>
 	</div>
