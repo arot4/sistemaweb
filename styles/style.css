@@ -10,10 +10,18 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background-color: var(--color-fondo);
     color: var(--color-texto);
     background-size: cover;
+}
+
+.boton, .textbox {
+    border-radius: 8px; /* Ajusta este valor según prefieras */
+}
+
+.boton, .login-box {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .login-box, .login {
@@ -27,6 +35,21 @@ body {
 
 }
 
+a, .boton {
+    margin: 10px; /* Añade un margen alrededor de cada botón */
+    display: inline-block;
+    text-decoration: none; /* Elimina el subrayado */
+    color: var(--color-texto-claro); /* Color del texto */
+    background-color: var(--color-detalle-rojo); /* Fondo del botón */
+    padding: 8px 12px; /* Relleno dentro del botón */
+    border-radius: 5px; /* Esquinas redondeadas */
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
+
+a:hover, .boton:hover {
+    background-color: var(--color-detalle-verde); /* Color de fondo al pasar el mouse */
+}
+
 .textbox, .boton, a {
     /* Elementos de formulario y botones */
     background-color: var(--color-detalle-rojo);
@@ -38,6 +61,31 @@ a:hover, .boton:hover {
     background-color: var(--color-detalle-verde);
     /* Estilos para hover */
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Línea sutil entre filas */
+}
+
+th {
+    background-color: var(--color-detalle-rojo);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Filas alternas */
+}
+
+tr:hover {
+    background-color: #ddd; /* Resalta fila al pasar el mouse */
+}
+
 
 /* Media queries para diseño responsivo */
 @media (max-width: 768px) {

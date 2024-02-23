@@ -18,21 +18,12 @@
 <body>
 	<div>
 		<ul>
-		  <li>
 		  	<a href="index.php" class="active">Ver</a>
-		  </li>
-		  <li>
 		  	<a href="registrar.php">Registrar</a>
-		  </li>
-		  <li>
 		  	<a href="modificar.php">Modificar</a>
-		  </li>
-		  <li>
 		  	<a href="eliminar.php">Eliminar</a>
-		  </li>
 		  <li style="float:right">
 		  	<a href="../php/salir.php" class="sesion">Cerrar sesión</a>
-		  </li>
 		</ul>
 	</div>
 	<div style="text-align: center; color: #3f51b5;">

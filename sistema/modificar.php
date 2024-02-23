@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="../styles/style.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 </head>
-<body style="color: white;">
+<body>
 	<div>
 		<ul>
 		  <li>
